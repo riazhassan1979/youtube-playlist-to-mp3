@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
-from pytube import Playlist
+from pytube import Playlist, extract
 from moviepy.editor import AudioFileClip
 from mutagen.mp3 import MP3
 from mutagen.id3 import ID3, TIT2, TPE1, ID3NoHeaderError
@@ -55,9 +55,11 @@ def download_youtube_playlist(playlist_url, download_path='downloads', max_worke
     if not os.path.exists(download_path):
         os.makedirs(download_path)
 
-    playlist = Playlist(playlist_url)
+    # Identify whether the URL is for a YouTube or YouTube Music playlist
+    playlist_id = extract.playlist_id(playlist_url)
+    playlist = Playlist(f"https://www.youtube.com/playlist?list={playlist_id}")
     
-    if len(playlist.videos) == 0:
+    if len(playlist.video_urls) == 0:
         messagebox.showerror("Error", "No videos found in playlist")
         abort_flag = True
         start_button.config(state=tk.NORMAL)
