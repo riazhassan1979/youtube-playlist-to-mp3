@@ -1,19 +1,29 @@
-# YouTube Playlist Downloader and MP3 Converter
+# YouTube Playlist To MP3 
 
-About this Python script:
-    * Downloads videos from a YouTube playlist, 
-    * Converts them to MP3 format, 
-    * Tags them with the title and contributing artist information. 
+About this Python script:  
+    - Downloads videos from a YouTube playlist,  
+    - Converts them to MP3 format,  
+    - Tags them with the title and contributing artist information.  
+  
+The script uses multi-threading to download and convert multiple videos concurrently.  
+  
+## Usage:  
+  
+To start app: 
 
-The script uses multi-threading to download and convert multiple videos concurrently.
+    ```python ./youtube_playlist_to_mp3.py```  
 
-## Features
-
-- Downloads audio from YouTube playlist videos
+or run the [executable from dist](dist/youtube_playlist_to_mp3.zip)  
+  
+## Features  
+  
+- Downloads audio from YouTube playlist videos  
 - Converts audio to MP3 format
 - Tags MP3 files with title and contributing artist
+- User can configure how many threads to use
 - Supports multi-threaded downloading and conversion
 - Limits the number of downloads to a specified maximum (default: 200)
+
 
 ## Requirements
 
@@ -22,7 +32,5 @@ The script uses multi-threading to download and convert multiple videos concurre
 - moviepy
 - mutagen
 
-## Usage: 
-
-To start app: ```python ./youtube_playlist_to_mp3.py```
-or run the [executable from dist](dist/youtube_playlist_to_mp3.exe)
+## To build the executable:
+Run the command ```pyinstaller --onefile --windowed .\youtube_playlist_to_mp3.py```
