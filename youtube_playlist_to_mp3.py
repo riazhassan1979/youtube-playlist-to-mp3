@@ -100,12 +100,10 @@ def start_download():
         try:
             download_youtube_playlist(playlist_url, download_path, max_workers, max_files)
             if not abort_flag:
-                messagebox.showinfo("Success", "Download completed successfully")
                 status_label.config(text="Download completed successfully")
                 start_button.config(state=tk.NORMAL)
         except Exception as e:
             if not abort_flag:
-                messagebox.showerror("Error", str(e))
                 status_label.config(text="Error: " + str(e))
                 start_button.config(state=tk.NORMAL)
 
