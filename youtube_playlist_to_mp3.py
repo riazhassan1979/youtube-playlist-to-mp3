@@ -56,7 +56,15 @@ def download_youtube_playlist(playlist_url, download_path='downloads', max_worke
         os.makedirs(download_path)
 
     playlist = Playlist(playlist_url)
-    videos = playlist.videos[:max_files]
+    
+    if len(playlist.videos) == 0:
+        messagebox.showerror("Error", "No videos found in playlist")
+        return
+    
+    if len(playlist.videos) > max_files:
+        videos = playlist.videos[:max_files]
+    else:
+        videos = playlist.videos
     total_files = len(videos)
     
     progress_var.set(0)
