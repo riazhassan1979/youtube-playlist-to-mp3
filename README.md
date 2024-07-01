@@ -14,8 +14,8 @@ The script uses multi-threading to download and convert multiple videos concurre
   
 ## Usage:  
   
-To start app: 
-
+To start app, install dependencies then run the python file: 
+    ```pip install -r requirements.txt```
     ```python ./youtube_playlist_to_mp3.py```  
 
 or run the [executable from dist](dist/youtube_playlist_to_mp3.zip)  
