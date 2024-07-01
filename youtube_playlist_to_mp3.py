@@ -59,6 +59,8 @@ def download_youtube_playlist(playlist_url, download_path='downloads', max_worke
     
     if len(playlist.videos) == 0:
         messagebox.showerror("Error", "No videos found in playlist")
+        abort_flag = True
+        start_button.config(state=tk.NORMAL)
         return
     
     if len(playlist.videos) > max_files:
